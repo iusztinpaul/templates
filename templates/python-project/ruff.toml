@@ -1,0 +1,26 @@
+line-length = 120
+target-version = "py311"
+extend-exclude = [
+    ".github",
+    "metaflow_libs/dfl_objects" # TODO: Fix linting issues in this directory
+]
+
+[lint]
+extend-select = [
+  "I",
+  "B",
+  "G",
+  "T20",
+  "PTH",
+  "RUF"
+]
+
+[lint.isort]
+case-sensitive = true
+
+[lint.pydocstyle]
+convention = "google"
+
+[lint.per-file-ignores]
+"scripts/extract.py" = ["T201"] # Allow print statements in this script
+"metaflow_libs/console.py" = ["F403"] # Allow undefines names for the console to quickly import everything
